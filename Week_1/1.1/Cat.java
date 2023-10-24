@@ -11,9 +11,13 @@ public class Cat {
 
     public static void main(String[] args) {
         // Create an instance of the Cat class with a name
-        Cat cat = new Cat("Whiskers");
+        Cat cat0 = new Cat("Whiskers");
+        Cat cat1 = new Cat("Rex");
 
         // Call the meow method on the cat instance
-        cat.meow();
+        cat0.meow();
+        cat0.meow();
+        cat1.meow();
+        cat0.meow();
     }
 }
