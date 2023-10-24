@@ -1,10 +1,10 @@
 public class Task_1_2 {
     public static void main(String[] args) {
 
-        int height = 3;
+        int height = 4;
         
-        for (int i = 0; i <= height; i++) {
-            for (int j = height; j >= i ; j--) {
+        for (int i = 0; i <= (height - 1); i++) {
+            for (int j = (height - 1); j >= i ; j--) {
                 System.out.print(" ");
             }
 
