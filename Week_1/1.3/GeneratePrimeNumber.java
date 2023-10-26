@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class genPrime {
+public class GeneratePrimeNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
