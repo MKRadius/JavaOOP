@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CalcHypotenuse {
+public class CalculateHypotenuse {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
