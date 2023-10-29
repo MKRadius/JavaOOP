@@ -16,7 +16,7 @@ public class SumOfThreeNumbers {
         System.out.println("The sum of the numbers is " + (first + second + third));
         System.out.println("The product of the numbers is " + (first * second * third));
 
-        double avg = ((double) (first + second + third)) / 3.0;
+        double avg = ((double) (first + second + third)) / 3.0; // Using double gives more precision instead of using float
         System.out.println("The average of the numbers is " + String.format("%.13f", avg));
 
         scanner.close();
