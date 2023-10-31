@@ -2,7 +2,7 @@ public class CarDriver {
     public static void main(String[] args) {
         Car myCar;
 
-        myCar = new Car("Toyota Corolla");
+        myCar = new Car("Toyota Corolla", 50, 190);
         myCar.fillTank();
 
         for(int i = 0; i < 6; i++) {

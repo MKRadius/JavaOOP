@@ -5,6 +5,10 @@ public class Car {
     private float gasolineCapacity;
     private String typeName;
 
+    private float ccTargetSpeed;
+    private boolean turnOn = false;
+
+
     public Car(String typeName, int capacity, int topSpeed) {
         speed = 0; gasolineLevel = 0;
         this.typeName = typeName; 
@@ -21,7 +25,7 @@ public class Car {
         }
     }
     
-    void decelerate(int amount) {
+    public void decelerate(int amount) {
         if (gasolineLevel > 0) {
             if (amount > 0)
                 speed = Math.max(0, speed - amount);
@@ -29,19 +33,25 @@ public class Car {
             speed = 0;
     }
 
-    float getSpeed() {
+    public float getSpeed() {
         return speed;
     }
 
-    String getTypeName() {
+    public String getTypeName() {
         return typeName;
     }
 
-    void fillTank() {
+    public fillTank() {
         gasolineLevel = gasolineCapacity;
     }
 
-    float getGasolineLevel() {
+    public float getGasolineLevel() {
         return gasolineLevel;
     }
+
+    public void useCruiseControl(int targetSpeed) {
+        if (targetSpeed > topSpeed || targetSpeed < 0) {
+            System.out.println("Can't reach desired speed");
+        }
+    }   
 }
