@@ -16,6 +16,9 @@ public class CarDriver {
         // }
 
 
+        myCar.setCruiseControlTargetSpeed(150);
+        myCar.toggleCruiseControl();
         myCar.useCruiseControl();
+        myCar.toggleCruiseControl();
     }
 }

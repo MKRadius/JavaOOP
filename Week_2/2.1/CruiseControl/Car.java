@@ -6,7 +6,7 @@ public class Car {
     private String typeName;
 
     private float ccTargetSpeed;
-    private boolean turnOn = false;
+    private boolean ccTurnOn = false;
 
 
     public Car(String typeName, int capacity, int topSpeed) {
@@ -17,18 +17,17 @@ public class Car {
     }
 
     public void accelerate() {
-        if (speed <= (topSpeed - 10)) {
+        if (this.speed <= (topSpeed - 10)) {
             if (gasolineLevel > 0)
-                speed += 10;
+                speed += 1;
             else
                 speed = 0;
         }
     }
     
-    public void decelerate(int amount) {
+    public void decelerate() {
         if (gasolineLevel > 0) {
-            if (amount > 0)
-                speed = Math.max(0, speed - amount);
+            speed = Math.max(0, speed - 1);
         } else
             speed = 0;
     }
@@ -41,7 +40,7 @@ public class Car {
         return typeName;
     }
 
-    public fillTank() {
+    public void fillTank() {
         gasolineLevel = gasolineCapacity;
     }
 
@@ -49,9 +48,54 @@ public class Car {
         return gasolineLevel;
     }
 
-    public void useCruiseControl(int targetSpeed) {
-        if (targetSpeed > topSpeed || targetSpeed < 0) {
-            System.out.println("Can't reach desired speed");
+
+
+    public void setCruiseControlTargetSpeed(int targetSpeed) {
+        ccTargetSpeed = (float) targetSpeed;
+    }
+
+    public float getCruiseControlTargetSpeed() {
+        return ccTargetSpeed;
+    }
+
+    public void toggleCruiseControl() {
+        if (ccTurnOn) {
+            ccTurnOn = false;
+            System.out.println("Cruise control is now off.");
+        }
+        else {
+            ccTurnOn = true;
+            System.out.println("Cruise control is now on."); 
+        }
+    }
+
+    public void useCruiseControl() {
+        if (ccTurnOn) {
+            if (ccTargetSpeed < 0 || ccTargetSpeed > topSpeed) {
+                System.out.println("Cruise control target speed invalid");
+            }
+            else if (ccTargetSpeed > speed) {
+                while (ccTargetSpeed > speed) {
+                    this.accelerate();
+                    if (speed % 10.0 == 0) {
+                        System.out.println(this.getTypeName() + ": speed is " + this.getSpeed() + " km/h");
+                    }
+                }
+            }
+            else if (ccTargetSpeed < speed) {
+                while (ccTargetSpeed < speed) {
+                    this.decelerate();
+                    if (speed % 10.0 == 0) {
+                        System.out.println(this.getTypeName() + ": speed is " + this.getSpeed() + " km/h");
+                    }                 
+                }
+            }
+            else {
+                System.out.println("Cruise control is maintaining target speed.");
+            }
+        }
+        else {
+            System.out.println("Cruise control is off.");
         }
     }   
 }
