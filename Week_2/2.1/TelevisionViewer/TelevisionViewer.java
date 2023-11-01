@@ -1,6 +1,6 @@
 public class TelevisionViewer {
 	public static void main(String[] args) {
-		Television myTV = new Television(10);
+		Television myTV = new Television();
 		myTV.setChannel(1);
 
 		for (int day = 1; day <= 10; day++) {
