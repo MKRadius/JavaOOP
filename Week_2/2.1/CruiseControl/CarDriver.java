@@ -20,5 +20,13 @@ public class CarDriver {
         myCar.toggleCruiseControl();
         myCar.useCruiseControl();
         myCar.toggleCruiseControl();
+        
+
+        myCar.setCruiseControlTargetSpeed(100);
+        myCar.useCruiseControl(); // Test if car can use cruise control when it's off
+        myCar.toggleCruiseControl();
+        myCar.useCruiseControl();
+
+        myCar.toggleCruiseControl();
     }
 }
