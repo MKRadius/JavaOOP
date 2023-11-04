@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.List;
 
 class ShoppingList {
     private String purpose;
@@ -118,7 +117,7 @@ class ShoppingList {
 }
 
 public class GroceryListManager {
-    private List<ShoppingList> shoppingLists = new ArrayList<>();
+    private ArrayList<ShoppingList> shoppingLists = new ArrayList<>();
 
     public ShoppingList addShoppingList(String purpose) {
         ShoppingList list = new ShoppingList(purpose);
