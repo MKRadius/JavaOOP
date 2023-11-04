@@ -24,7 +24,7 @@ public class GroceryListManager {
             String name = item.getKey();
             Double price = item.getValue();
 
-            System.out.println(i++ + ". " + name + " - " + price);
+            System.out.println((i++) + ". " + name + " - " + price);
         }
     }
 

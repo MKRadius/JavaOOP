@@ -26,7 +26,7 @@ public class GroceryListManager {
             String name = item.getKey();
             Double price = item.getValue();
 
-            System.out.println(i++ + ". " + name + " - " + price);
+            System.out.println((i++) + ". " + name + " - " + price);
         }
     }
 
@@ -56,7 +56,7 @@ public class GroceryListManager {
 
             for (Map.Entry<String, String> item : groceryCategory.entrySet()) {
                 if (item.getValue() == category) {
-                    System.out.println(i++ + ". " + item.getKey());
+                    System.out.println((i++) + ". " + item.getKey());
                 }
             }
         }
@@ -96,7 +96,7 @@ public class GroceryListManager {
 
         for (Map.Entry<String, Integer> item : groceryQuantity.entrySet()) {
                 if (item.getValue() > 0) {
-                    System.out.println(i++ + ". " + item.getKey() + " - Quantity: " + item.getValue());
+                    System.out.println((i++) + ". " + item.getKey() + " - Quantity: " + item.getValue());
                 }
             }
     }
