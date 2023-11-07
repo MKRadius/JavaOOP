@@ -11,6 +11,16 @@ public class Triangle extends Shape {
         this.b = b;
         this.c = c;
     }
+
+    @Override
+    public String printProperties() {
+        if (c == 0) {
+            return "base " + a + " and height " + b;
+        }
+        else {
+            return "sides " + a + ", "+ b + ", "+ c;
+        }
+    }
     
     @Override
     public double calculateArea() {

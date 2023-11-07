@@ -13,6 +13,11 @@ public class Rectangle extends Shape {
     public double getHeight() {
         return (a > b) ? a : b;
     }
+
+    @Override
+    public String printProperties() {
+        return "sides " + a + " and " + b;
+    }
     
     @Override
     public double calculateArea() {
