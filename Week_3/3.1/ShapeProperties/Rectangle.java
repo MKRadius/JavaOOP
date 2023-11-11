@@ -1,9 +1,11 @@
 public class Rectangle extends Shape {
     private double a, b;
+    private String color;
 
-    public Rectangle(double a, double b) {
+    public Rectangle(double a, double b, String color) {
         this.a = a;
         this.b = b;
+        this.color = color;
     }
 
     public double getWidth() {
@@ -12,6 +14,14 @@ public class Rectangle extends Shape {
 
     public double getHeight() {
         return (a > b) ? a : b;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return this.color;
     }
 
     @Override

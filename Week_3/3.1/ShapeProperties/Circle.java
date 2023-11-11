@@ -1,12 +1,22 @@
 public class Circle extends Shape {
     private double radius;
+    private String color;
 
-    public Circle(double radius) {
+    public Circle(double radius, String color) {
         this.radius = radius;
+        this.color = color;
     }
 
     public double getRadius() {
         return this.radius;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return this.color;
     }
     
     @Override

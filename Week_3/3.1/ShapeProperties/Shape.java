@@ -7,6 +7,10 @@ public class Shape {
         return "";
     }
 
+    public String getColor() {
+        return "";
+    }
+
     public String printArea() {
         double area = calculateArea();
         String str = String.format("%.3f", area);
