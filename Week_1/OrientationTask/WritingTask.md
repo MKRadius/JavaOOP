@@ -32,8 +32,9 @@ Simulation is appropriate for the above situations due to the following reasons:
   
 ## 2. Identifying the elements
 
-Take a real-world operational system that can be observed (bank, supermarket) and identify the elements associated with it in terms of variability, complexity, interconnectedness.
+**Question:** Take a real-world operational system that can be observed (bank, supermarket) and identify the elements associated with it in terms of variability, complexity, interconnectedness.
 
+**Answer:**
 
 **Variability:**
 
