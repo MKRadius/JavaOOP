@@ -2,7 +2,9 @@
 
 ## 1. Simulation in everyday situations
 
-Think of everyday situations that could be analyzed by simulation. What aspects of the situation make the simulation approach specifically appropriate for analyzing the situation (i.e., think about and explain why simulation would be specifically better than experimenting in the real world). What aspects of sustainability can you incorporate into the simulation.
+**Question:** Think of everyday situations that could be analyzed by simulation. What aspects of the situation make the simulation approach specifically appropriate for analyzing the situation (i.e., think about and explain why simulation would be specifically better than experimenting in the real world). What aspects of sustainability can you incorporate into the simulation.
+
+**Answer:**
 
 Everyday situations that could be analyzed by simulation:
 - Traffic management
