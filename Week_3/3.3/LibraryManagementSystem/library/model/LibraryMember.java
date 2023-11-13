@@ -31,6 +31,10 @@ public class LibraryMember {
         return this.memberId;
     }
 
+    public List<Book> getBorrowedBooks() {
+        return this.borrowedBooks;
+    }
+
     public void borrowFromLib(Book book) {
         borrowedBooks.add(book);
     }

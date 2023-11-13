@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Library library = new Library();
 
-        Book book1 = new Book("Introduction to Java Programming", "John Smith", "2020");
-        Book book2 = new Book("Data Structures and Algorithms", "Jane Doe", "2018");
-        Book book3 = new Book("The Art of Fiction", "Alice Johnson", "2019");
+        Book book1 = new Book("Introduction to Java Programming", "John Smith", "9780130319975");
+        Book book2 = new Book("Data Structures and Algorithms", "Jane Doe", "8210568109653");
+        Book book3 = new Book("The Art of Fiction", "Alice Johnson", "9183275013871");
 
         LibraryMember member1 = new LibraryMember("Member One");
         LibraryMember member2 = new LibraryMember("Member Two");
@@ -20,7 +20,13 @@ public class Main {
         library.addMember(member1);
         library.addMember(member2);
 
-        
+        library.borrowBook(member1, book3);
+        library.borrowBook(member1, book2);
+        library.borrowBook(member2, book1);
+        library.borrowBook(member2, book3); // Unavailable
 
+        library.returnBook(member2, book1);
+        library.returnBook(member1, book3);
+        library.returnBook(member1, book2);
     }
 }

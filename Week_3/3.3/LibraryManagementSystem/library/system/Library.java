@@ -22,13 +22,44 @@ public class Library {
     }
 
     public void borrowBook(LibraryMember member, Book book) {
-        member.borrowFromLib(book);
-        System.out.println("Member " + member.getMemberId() + " borrowed: " + book.getTitle());
+        boolean libHasBook = false;
 
+        for (Book libBook : books) {
+            if (libBook.isSame(book)) {
+                libHasBook = true;
+                break;
+            }
+        }
+        
+        if (libHasBook) {
+            books.remove(book);
+            member.borrowFromLib(book);
+
+            System.out.println("Member " + member.getMemberId() + " borrowed: " + book.getTitle());
+        }
+        else {
+            System.out.println("Book unavailable at library");
+        }
     }
 
     public void returnBook(LibraryMember member, Book book) {
-        member.returnToLib(book);
-        System.out.println("Member " + member.getMemberId() + " returned: " + book.getTitle());
+        boolean memHasBook = false;
+
+        for (Book memBook : member.getBorrowedBooks()) {
+            if (memBook.isSame(book)) {
+                memHasBook = true;
+                break;
+            }
+        }
+        
+        if (memHasBook) {
+            member.returnToLib(book);
+            books.add(book);
+            
+            System.out.println("Member " + member.getMemberId() + " returned: " + book.getTitle());
+        }
+        else {
+            System.out.println("Member lost the book");
+        }
     }
 }

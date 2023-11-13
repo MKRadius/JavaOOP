@@ -35,5 +35,12 @@ public class Book {
         return this.isbn;
     }
 
-
+    public boolean isSame(Book book) {
+        if (this.title  == book.getTitle() && 
+            this.author == book.getAuthor() && 
+            this.isbn   == book.getIsbn()) {
+            return true;
+        }
+        else return false;
+    }
 }
