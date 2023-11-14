@@ -17,7 +17,7 @@ public class Event implements Comparable<Event> {
 
     @Override
     public String toString() {
-        return time + "<" + type + ">";
+        return time + " <" + type + ">";
     }
 
     @Override

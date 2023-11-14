@@ -9,15 +9,19 @@ public class EventList {
     }
 
     public void add(Event e) {
-
+        System.out.println("Add: " + e.getType() + " " + e.getTime());
+        eventList.add(e);
     }
 
-    public Event remove() {
-        return new Event(null, 0);
+    public void remove() {
+        System.out.println("Remove: " + + eventList.peek().getTime() +" <" + eventList.peek().getType() + ">");
+        eventList.remove();
     }
 
     public void print() {
-
+        for (Event e : eventList) {
+            System.out.println(e);
+        }
     }
 
     public static void main(String[] args) {
@@ -33,9 +37,13 @@ public class EventList {
             list.add(new Event(type, random.nextInt(1000)));
         }
 
-        System.out.println("Event removed: " + list.remove());
+        // Print the PriorityQueue list
+        list.print();
 
+        //Remove first event
+        list.remove();
 
+        // Print again
         list.print();
     }
 }
