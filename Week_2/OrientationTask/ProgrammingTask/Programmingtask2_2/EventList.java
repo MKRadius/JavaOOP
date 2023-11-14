@@ -31,9 +31,9 @@ public class EventList {
 
         for (int i = 0; i < 10; i++) {
             if (random.nextBoolean())
-                type = "Arrival";
+                type = "ARRIVAL";
             else
-                type = "Departure";
+                type = "DEPARTURE";
             list.add(new Event(type, random.nextInt(1000)));
         }
 
