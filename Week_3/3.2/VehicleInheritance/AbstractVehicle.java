@@ -19,7 +19,7 @@ abstract class AbstractVehicle implements Vehicle {
     public String getType() {
         return type;
     }
-
+    
     public String getFuel() {
         return fuel;
     }
@@ -31,4 +31,14 @@ abstract class AbstractVehicle implements Vehicle {
     public int getCapacity() {
         return capacity;
     }
+
+    public void start() {
+        System.out.println(type + " is starting...");
+    }
+
+    public void stop() {
+        System.out.println(type + " is stopping...");
+    }
+
+    public abstract void getInfo();
 }
