@@ -6,9 +6,9 @@
 
 **Answer:**
 
-To simulate the age distribution of students in our group, I followed the steps below:
+To simulate the age distribution of students in our group, I would follow the steps below:
 
-### 1. Collect data 
+#### 1. Collect data 
 
 First, I will collect data on the age distribution of students in our group. After collecting, I would have a table of table of data that looks like this:
 
@@ -22,7 +22,7 @@ First, I will collect data on the age distribution of students in our group. Aft
 | Above 40  | 1                  | 4%                     |
 | **Total** | **26**             | **100%**               |
 
-### 2. Calculate cumulative percentage
+#### 2. Calculate cumulative percentage
 
 Next, I will calculate the cumulative percentage of each age group.
 
@@ -36,11 +36,11 @@ Next, I will calculate the cumulative percentage of each age group.
 | Above 40  | 1                  | 4%         | 100%                  | 1.00 |
 | **Total** | **26**             | **100%**   | **100%**              | 1.00 |
 
-### 3. Generate random number
+#### 3. Generate random number
 
 Then, I will generate a random number between 0 and 1. This random number will be used to determine which age group the student will be in.
 
-### 4. Determine age group
+#### 4. Determine age group
 
 Next, I will use the random number generated in the previous step to determine which age group the student will be in. This is done by comparing the random number to the cumulative percentage of each age group. If the random number is less than the cumulative percentage of the age group, then the student will be in that age group. Otherwise, the student will be in the next age group.
 
