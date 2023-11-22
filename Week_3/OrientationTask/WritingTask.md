@@ -26,30 +26,30 @@ First, I will collect data on the age distribution of students in our group. Aft
 
 Next, I will calculate the cumulative percentage of each age group.
 
-| Age       | Number of students | Percentage | Cumulative percentage |      |
-|-----------|--------------------|------------|-----------------------|------|
-| 18-20     | 6                  | 23%        | 23%                   | 0.23 | 
-| 21-25     | 7                  | 27%        | 50%                   | 0.50 |
-| 26-30     | 5                  | 19%        | 69%                   | 0.69 |
-| 31-35     | 4                  | 15%        | 84%                   | 0.84 |
-| 36-40     | 3                  | 12%        | 96%                   | 0.96 |
-| Above 40  | 1                  | 4%         | 100%                  | 1.00 |
-| **Total** | **26**             | **100%**   | **100%**              | 1.00 |
+| Age       | Number of students | Percentage | Cumulative percentage |
+|-----------|--------------------|------------|-----------------------|
+| 18-20     | 6                  | 23%        | 23%                   | 
+| 21-25     | 7                  | 27%        | 50%                   |
+| 26-30     | 5                  | 19%        | 69%                   |
+| 31-35     | 4                  | 15%        | 84%                   |
+| 36-40     | 3                  | 12%        | 96%                   |
+| Above 40  | 1                  | 4%         | 100%                  |
+| **Total** | **26**             | **100%**   | **100%**              |
 
 #### 3. Generate random number
 
-Then, I will generate a random number between 0 and 1. This random number will be used to determine which age group the student will be in.
+Then, I will generate a random number between 1 and 100. This random number will be used to determine which age group the student will be in.
 
 #### 4. Determine age group
 
 Next, I will use the random number generated in the previous step to determine which age group the student will be in. This is done by comparing the random number to the cumulative percentage of each age group. If the random number is less than the cumulative percentage of the age group, then the student will be in that age group. Otherwise, the student will be in the next age group.
 
-- If the random number falls between 0 and 0.23, assign the age between 18 and 20.
-- If the random number falls between 0.24 and 0.50, assign the age between 21 and 25.
-- If the random number falls between 0.51 and 0.69, assign the age between 26 and 30.
-- If the random number falls between 0.70 and 0.84, assign the age between 31 and 35.
-- If the random number falls between 0.85 and 0.96, assign the age between 36 and 40.
-- If the random number falls between 0.97 and 1.00, assign the age above 40.
+- If the random number falls between 1 and 23, assign the age between 18 and 20.
+- If the random number falls between 24 and 50, assign the age between 21 and 25.
+- If the random number falls between 51 and 69, assign the age between 26 and 30.
+- If the random number falls between 70 and 84, assign the age between 31 and 35.
+- If the random number falls between 85 and 96, assign the age between 36 and 40.
+- If the random number falls between 97 and 100, assign the age above 40.
 
 This process is repeated until 1000 students are assigned an age based on the distribution.
 
