@@ -73,28 +73,30 @@ A Singleton object can't be created from outside the Singleton class using the n
 
 **1. Normal Distribution:**
 
+- Use case: The Normal Distribution, also known as the Gaussian distribution, is used in statistics as a simple model for complex random variables. 
+
 - Example: A real-life example of a normal distribution is human height. If you collected the heights of all adults in a region, the data would be distributed in a bell curve shape, which is characteristic of the normal distribution.
 
 **2. Poisson Distribution:**
 
-- Use Case: The Poisson Distribution expresses the probability of a given number of events occurring in a fixed interval of time or space.
+- Use case: The Poisson Distribution expresses the probability of a given number of events occurring in a fixed interval of time or space.
 
 - Example: A real-life example of a Poisson distribution is the number of phone calls received by a call center per hour.
 
 **3. Binomial Distribution:**
 
-- Use Case: The Binomial Distribution describes the number of successes in a fixed number of independent Bernoulli trials with the same probability of success.
+- Use case: The Binomial Distribution describes the number of successes in a fixed number of independent Bernoulli trials with the same probability of success.
 
 - Example: A real-life example of a binomial distribution is the number of heads in 10 coin flips.
 
 **4. Exponential Distribution:**
 
-- Use Case: The Exponential Distribution describes the time between events in a Poisson point process.
+- Use case: The Exponential Distribution describes the time between events in a Poisson point process.
 
 - Example: A real-life example of an exponential distribution is the amount of time until the next bus arrives.
 
 **5. Uniform Distribution:**
 
-- Use Case: The Uniform Distribution describes an event where every outcome is equally likely.
+- Use case: The Uniform Distribution describes an event where every outcome is equally likely.
 
 - Example: A real-life example of a uniform distribution is rolling a single die. Each outcome (1, 2, 3, 4, 5, 6) is equally likely.
