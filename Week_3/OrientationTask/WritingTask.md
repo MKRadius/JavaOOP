@@ -63,3 +63,38 @@ This process is repeated until 1000 students are assigned an age based on the di
 
 A Singleton object can't be created from outside the Singleton class using the new operation because the constructor of the Singleton class is private. This means that the Singleton class can't be instantiated from outside the class. The only way to create an instance of the Singleton class is to call the static method `getInstance()` which returns the instance of the Singleton class. This method is called a factory method because it is responsible for creating an instance of the Singleton class.
 
+
+
+## 4. Distributions
+
+**Question:** Familiarize yourself with a few distributions that could be used in the simulator for experimentation. These distributions could be used in the following situations. Find answers online. You can also study other distributions. For example, Google "real life example of normal distribution"
+
+**Answer:**
+
+**1. Normal Distribution:**
+
+- Example: A real-life example of a normal distribution is human height. If you collected the heights of all adults in a region, the data would be distributed in a bell curve shape, which is characteristic of the normal distribution.
+
+**2. Poisson Distribution:**
+
+- Use Case: The Poisson Distribution expresses the probability of a given number of events occurring in a fixed interval of time or space.
+
+- Example: A real-life example of a Poisson distribution is the number of phone calls received by a call center per hour.
+
+**3. Binomial Distribution:**
+
+- Use Case: The Binomial Distribution describes the number of successes in a fixed number of independent Bernoulli trials with the same probability of success.
+
+- Example: A real-life example of a binomial distribution is the number of heads in 10 coin flips.
+
+**4. Exponential Distribution:**
+
+- Use Case: The Exponential Distribution describes the time between events in a Poisson point process.
+
+- Example: A real-life example of an exponential distribution is the amount of time until the next bus arrives.
+
+**5. Uniform Distribution:**
+
+- Use Case: The Uniform Distribution describes an event where every outcome is equally likely.
+
+- Example: A real-life example of a uniform distribution is rolling a single die. Each outcome (1, 2, 3, 4, 5, 6) is equally likely.
