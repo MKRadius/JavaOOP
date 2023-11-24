@@ -19,7 +19,6 @@ public class ReadCSV {
             return;
         }
 
-
         try {
             InputStream iStream = url.openStream();
             InputStreamReader iStreamReader = new InputStreamReader(iStream);
