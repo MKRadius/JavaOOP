@@ -91,7 +91,7 @@ public class Calculator {
 
     - If the user inputs an empty string, the while loop is broken.
 
-    - If the user inputs the word "reset", the calculator is reset the value to 0 and the while loop continues.
+    - If the user inputs the word "reset", the calculator reset the value to 0 and the while loop continues.
 
     - If the user inputs a number, the number is added to the calculator.
 
