@@ -113,19 +113,19 @@ class MultipleThreadProcess extends Thread {
 
         this.setStartTime();
 
-        for (int i = 0; i < this.getCoreCount(); i++) {
-            threadList.get(i).start();
+        for (SingleThreadProcess stp : threadList) {
+            stp.start();
         }
 
-        for (int i = 0; i < this.getCoreCount(); i++) {
+        for (SingleThreadProcess stp : threadList) {
             try {
-                threadList.get(i).join();
+                stp.join();
             }
             catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            this.sum += threadList.get(i).getSum();
+            this.sum += stp.getSum();
         }
 
         this.setEndTime();
@@ -174,6 +174,5 @@ public class ParallelNumberSum {
         MultipleThreadProcess mtp = new MultipleThreadProcess(arr);
         System.out.print(mtp.getCoreCount() + " Thread(s): ");
         mtp.execute();
-        
     }
 }
