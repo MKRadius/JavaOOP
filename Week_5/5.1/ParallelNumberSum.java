@@ -51,7 +51,7 @@ class SingleThreadProcess extends Thread {
             e.printStackTrace();
         }
 
-        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + this.getTime() + " ms.");
+        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + String.format("%.3f", this.getTime()) + " ms.");
     }
 }
 
@@ -141,7 +141,7 @@ class MultipleThreadProcess extends Thread {
             e.printStackTrace();
         }
 
-        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + this.getTime() + " ms.");
+        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + String.format("%.3f", this.getTime()) + " ms.");
     }
 }
 
