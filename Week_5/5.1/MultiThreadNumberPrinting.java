@@ -35,5 +35,14 @@ public class MultiThreadNumberPrinting {
 
         odd.start();
         even.start();
+
+        try {
+            odd.join();
+            even.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Printing complete.");
     }
 }
