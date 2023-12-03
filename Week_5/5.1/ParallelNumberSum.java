@@ -11,6 +11,22 @@ class SingleThreadProcess extends Thread {
         this.arr = arr;
     }
 
+    public void setStartTime() {
+        this.startTime = System.nanoTime();
+    }
+
+    public void setEndTime() {
+        this.endTime = System.nanoTime();
+    }
+
+    public double getTime() {
+        return (this.endTime - this.startTime) * 10e-6;
+    }
+
+    public int getSum() {
+        return this.sum;
+    }
+
     public void run() {
         this.setStartTime();
 
@@ -23,6 +39,35 @@ class SingleThreadProcess extends Thread {
         Thread.yield();
 
         this.setEndTime();
+    }
+
+    public void execute() {
+        this.start();
+        
+        try {
+            this.join();
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + this.getTime() + " ms.");
+    }
+}
+
+class MultipleThreadProcess extends Thread {
+    private int[][] arr;
+    private long startTime;
+    private long endTime;
+    private int sum;
+    
+    private int coreCount;
+    private ArrayList<SingleThreadProcess> threadList = new ArrayList<SingleThreadProcess>();
+
+
+    public MultipleThreadProcess(int[][] arr) {
+        this.arr = arr;
+        this.coreCount = Runtime.getRuntime().availableProcessors();
     }
 
     public void setStartTime() {
@@ -40,21 +85,9 @@ class SingleThreadProcess extends Thread {
     public int getSum() {
         return this.sum;
     }
-}
 
-class MultipleThreadProcess extends Thread {
-    private int[][] arr;
-    private long startTime;
-    private long endTime;
-    private int sum;
-    
-    private int coreCount;
-    private ArrayList<SingleThreadProcess> threadList = new ArrayList<SingleThreadProcess>();
-
-
-    public MultipleThreadProcess(int[][] arr) {
-        this.arr = arr;
-        this.coreCount = Runtime.getRuntime().availableProcessors();
+    public int getCoreCount() {
+        return this.coreCount;
     }
 
     public void coreWorkSplit() {
@@ -98,66 +131,49 @@ class MultipleThreadProcess extends Thread {
         this.setEndTime();
     }
 
-    public void setStartTime() {
-        this.startTime = System.nanoTime();
-    }
+    public void execute() {
+        this.start();
 
-    public void setEndTime() {
-        this.endTime = System.nanoTime();
-    }
+        try {
+            this.join();
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-    public double getTime() {
-        return (this.endTime - this.startTime) * 10e-6;
-    }
-
-    public int getSum() {
-        return this.sum;
-    }
-
-    public int getCoreCount() {
-        return this.coreCount;
+        System.out.println("Sum: " + this.getSum() + " - Elapsed time: " + this.getTime() + " ms.");
     }
 }
 
 public class ParallelNumberSum {
     public static void main(String[] args) {
-        int range = 10000;
+        int range = 5000;
         int[][] arr = new int[range][range];
         Random random = new Random();
 
+        // Fill array with random numbers between 1 and 10
         for (int i = 0; i < range; i++) {
             for (int j = 0; j < range; j++) {
-                arr[i][j] = random.nextInt(1, 100);
+                arr[i][j] = random.nextInt(1, 10);
             }
         }
 
+        // Calculate with single thread
         SingleThreadProcess stp = new SingleThreadProcess(arr);
-
-        stp.start();
-        
-        try {
-            stp.join();
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Calculated sum: " + stp.getSum() + " - Elapsed time: " + stp.getTime() + " ms.");
+        System.out.print("1 Thread(s): ");
+        stp.execute();
 
 
+        // Re-calculate with new array to examine time difference
+        SingleThreadProcess stpNew = new SingleThreadProcess(arr);
+        System.out.print("1 Thread(s): ");
+        stpNew.execute();
+
+
+        // Now calculate with multiple threads
         MultipleThreadProcess mtp = new MultipleThreadProcess(arr);
-
-        System.out.println(mtp.getCoreCount());
-
-        mtp.start();
-
-        try {
-            mtp.join();
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Calculated sum: " + mtp.getSum() + " - Elapsed time: " + mtp.getTime() + " ms.");
+        System.out.print(mtp.getCoreCount() + " Thread(s): ");
+        mtp.execute();
+        
     }
 }
