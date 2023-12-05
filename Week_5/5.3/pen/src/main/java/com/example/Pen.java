@@ -8,31 +8,36 @@ public class Pen {
         @Override public String toString() { return color; }
     }
 
-    public Pen() {
+    private Color color;
+    private boolean isCapped = true;
 
+    public Pen() {
+        this(Color.RED);
     }
 
     public Pen(Color c) {
-
+        this.color = c;
     }
     
     public String draw() {
-        return "";
+        if (this.isCapped) {
+            return "";
+        } else {
+            return "Drawing " + this.color;
+        }
     }
 
     public void capOff() {
-
+        this.isCapped = false;
     }
 
     public void capOn() {
-
+        this.isCapped = true;
     }
 
     public void changeColor(Color c) {
-
-    }
-
-    public static void main(String[] args) {
-        
+        if (this.isCapped) {
+            this.color = c;
+        }
     }
 }
