@@ -53,17 +53,16 @@ The categories in which performance measures are maintained/updated/computed are
 **Answer:**
 
 ```mermaid
-flowchart TD
-    A[Ticketing Booth] -->|Ticket Purchase| B(FastPass Kiosks)
-    A -->|Guest Queries| C(Guest Services Counter)
+flowchart LR
+    A[Checkout Counters] -->|Payment| B(Customer Service Desk)
+    C[Fresh Produce Section] -->|Assistance| D(Deli and Bakery Counters)
 ```
 
 
 ```mermaid
-flowchart TD
-    A[Information Center] -->|Park Information| B(First Aid Station)
-    A -->|Dining Reservations| C(Dining Reservations Desk)
-    A -->|Merchandise| D(Merchandise Store)
+flowchart LR
+    A[Emergency Room] -->|Critical Care| B(Operating Rooms)
+    C[Pharmacy] -->|Medications| D(Patient Rooms)
 ```
 
 
