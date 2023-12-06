@@ -66,6 +66,11 @@ flowchart LR
 
     buffer1 -.- servicepoint3((Payment Counter))
     servicepoint3 --> nowhere4[ ]
+    
+    style nowhere1 height:0px;
+    style nowhere2 height:0px;
+    style nowhere3 height:0px;
+    style nowhere4 height:0px;
 ```
 
 
@@ -86,6 +91,12 @@ flowchart LR
 
     buffer1 -.- servicepoint4((Study Room))
     servicepoint4 --> nowhere5[ ]
+
+    style nowhere1 height:0px;
+    style nowhere2 height:0px;
+    style nowhere3 height:0px;
+    style nowhere4 height:0px;
+    style nowhere5 height:0px;
 ```
 
 
