@@ -52,29 +52,40 @@ The categories in which performance measures are maintained/updated/computed are
 
 **Answer:**
 
+1. **Supermarket System**
+
 ```mermaid
 flowchart LR
-    nowhere1[ ] --> buffer1[(Order Counter)]
+    nowhere1[ ] --> buffer1[(Queue)]
 
-    buffer1 -.- servicepoint((Brewing Station))
+    buffer1 -.- servicepoint((Order Counter))
     servicepoint --> nowhere2[ ]
 
-    nowhere1(( )) --> buffer2[(Sitting Area)]
-    buffer2 -.- servicepoint2(( ))
-    servicepoint2 --> nowhere2
+    buffer1 -.- servicepoint2((Pickup Counter))
+    servicepoint2 --> nowhere3[ ]
+
+    buffer1 -.- servicepoint3((Payment Counter))
+    servicepoint3 --> nowhere4[ ]
 ```
 
 
+2. **Library System**
+
 ```mermaid
 flowchart LR
-    nowhere1[ ] --> buffer1[(Checkout Desk)]
+    nowhere1[ ] --> buffer1[(Queue)]
 
-    buffer1 -.- servicepoint((Reference Desk))
+    buffer1 -.- servicepoint((Information Desk))
     servicepoint --> nowhere2[ ]
 
-    nowhere1(( )) --> buffer2[(Children's Section)]
-    buffer2 -.- servicepoint2((Quiet Study Area))
-    servicepoint2 --> nowhere2
+    buffer1 -.- servicepoint2((Quiet Study Area))
+    servicepoint2 --> nowhere3[ ]
+
+    buffer1 -.- servicepoint3((Computer Lab))
+    servicepoint3 --> nowhere4[ ]
+
+    buffer1 -.- servicepoint4((Study Room))
+    servicepoint4 --> nowhere5[ ]
 ```
 
 
