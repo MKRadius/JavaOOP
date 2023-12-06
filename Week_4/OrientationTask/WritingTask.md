@@ -59,24 +59,22 @@ flowchart LR
     buffer1 -.- servicepoint((Brewing Station))
     servicepoint --> nowhere2[ ]
 
-    nowhere1(( )) --> buffer2[(Seating Area)]
+    nowhere1(( )) --> buffer2[(Sitting Area)]
     buffer2 -.- servicepoint2(( ))
     servicepoint2 --> nowhere2
-
 ```
 
 
 ```mermaid
 flowchart LR
-    nowhere1[ ] --> buffer1[(Front Desk)]
+    nowhere1[ ] --> buffer1[(Checkout Desk)]
 
-    buffer1 -.- servicepoint((Concierge Desk))
+    buffer1 -.- servicepoint((Reference Desk))
     servicepoint --> nowhere2[ ]
 
-    nowhere1(( )) --> buffer2[(Room Service)]
-    buffer2 -.- servicepoint2((Fitness Center))
+    nowhere1(( )) --> buffer2[(Children's Section)]
+    buffer2 -.- servicepoint2((Quiet Study Area))
     servicepoint2 --> nowhere2
-
 ```
 
 
