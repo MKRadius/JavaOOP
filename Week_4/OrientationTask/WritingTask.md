@@ -110,6 +110,59 @@ Think in general terms (don't think in detail) and present a general solution. N
 
 **Answer:**
 
+```java
+public class Simulation {
+    // Define simulation parameters, state, and events
+
+    public static void initializeSimulation() {
+        // Initialize simulation parameters
+        // Initialize initial state
+        // Schedule initial events
+    }
+
+    public static void findTimeOfNextEvent() {
+        // Determine the next event time based on A, B, and C events
+        // Advance the simulation clock to the time of the next event
+    }
+
+    public static void executeBPhaseEvents() {
+        // While there are B-phase events due at the current simulation time
+            // Get the next B-phase event
+            // Execute the event
+            // Update the state based on the event
+            // Possibly schedule new events based on the updated state
+    }
+
+    public static void attemptCPhaseEvents() {
+        // While there are C-phase events that can be performed at the current simulation time
+            // Get the next C-phase event
+            // Attempt to execute the event
+            // If the event was successfully executed
+                // Update the state based on the event
+                // Possibly schedule new events based on the updated state
+    }
+
+    public static boolean isSimulationComplete() {
+        // Check conditions to determine if the simulation is complete
+        // Return true if the simulation is finished, else false
+        return /* simulation complete condition */;
+    }
+
+    public static void main(String[] args) {
+        initializeSimulation();
+
+        while (!isSimulationComplete()) {
+            findTimeOfNextEvent();
+            executeBPhaseEvents();
+            attemptCPhaseEvents();
+        }
+
+        // Simulation completed
+        System.out.println("Simulation completed.");
+    }
+}
+```
+
 ## 5.
 
 **Question:** Using the names of the simulator classes, explain the simulator a) what A-phase coding means b) what coding B-events means c) what coding C events means.
@@ -120,3 +173,48 @@ Present a general solution. No need for the target system concepts.
 
 **Answer:**
 
+```java
+public class Simulator {
+    // Define simulation parameters, state, and events
+
+    // A-phase coding
+    public void initialize() {
+        // Initialize simulation parameters
+        // Set initial state values
+        // Schedule initial events
+    }
+
+    // B-events coding
+    public void handleBEvents() {
+        // While there are B-phase events due at the current simulation time
+            // Get the next B-phase event
+            // Execute the event
+            // Update the state based on the event
+            // Schedule new B-phase events based on current state        
+    }
+
+    // C-events coding
+    public void handleCEvents() {
+        // While there are C-phase events that can be performed at the current simulation time
+            // Get the next C-phase event
+            // Attempt to execute the event
+            // If the event was successfully executed
+                // Update the state based on the event
+                // Schedule new C-phase events based on current state
+    }
+
+    public void runSimulation() {
+        initialize();
+        handleBEvents();
+        handleCEvents();
+    }
+}
+```
+
+**Explanation:**
+
+- A-phase coding refers to the initialization of the simulation state and initial events. It sets up the conditions for the beginning of the simulation.
+
+- B-events coding refers to the execution of events or actions specific to the B-phase. It handles events triggered at certain simulation times or conditions.
+
+- C-events coding refers to the execution of events specific to the C-phase. It handles events occurring towards the later stages of the simulation.
