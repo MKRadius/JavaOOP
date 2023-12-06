@@ -54,15 +54,29 @@ The categories in which performance measures are maintained/updated/computed are
 
 ```mermaid
 flowchart LR
-    A[Checkout Counters] -->|Payment| B(Customer Service Desk)
-    C[Fresh Produce Section] -->|Assistance| D(Deli and Bakery Counters)
+    nowhere1[ ] --> buffer1[(Order Counter)]
+
+    buffer1 -.- servicepoint((Brewing Station))
+    servicepoint --> nowhere2[ ]
+
+    nowhere1(( )) --> buffer2[(Seating Area)]
+    buffer2 -.- servicepoint2(( ))
+    servicepoint2 --> nowhere2
+
 ```
 
 
 ```mermaid
 flowchart LR
-    A[Emergency Room] -->|Critical Care| B(Operating Rooms)
-    C[Pharmacy] -->|Medications| D(Patient Rooms)
+    nowhere1[ ] --> buffer1[(Front Desk)]
+
+    buffer1 -.- servicepoint((Concierge Desk))
+    servicepoint --> nowhere2[ ]
+
+    nowhere1(( )) --> buffer2[(Room Service)]
+    buffer2 -.- servicepoint2((Fitness Center))
+    servicepoint2 --> nowhere2
+
 ```
 
 
