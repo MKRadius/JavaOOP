@@ -76,9 +76,9 @@ public class ConverterView extends Application {
         text.setAlignment(javafx.geometry.Pos.CENTER);
 
         FlowPane layout = new FlowPane(600, 120);
-        layout.setHgap(10); // Adjust horizontal gap
-        layout.setVgap(10); // Adjust vertical gap
-        layout.setPrefWrapLength(600); // Set preferred width by pixels
+        layout.setHgap(10);
+        layout.setVgap(10);
+        layout.setPrefWrapLength(600);
 
         layout.getChildren().addAll(
             fromCurrency, fromCurrencyBox, 
