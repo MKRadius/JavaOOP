@@ -13,10 +13,10 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         // Create an instance of the DictionaryView and start the application
         DictionaryView dictionaryView = new DictionaryView();
-        dictionaryView.start(primaryStage);
+        dictionaryView.start(stage);
     }
 
     public static void main(String[] args) {
