@@ -91,10 +91,11 @@ public class ConverterView extends Application {
         layout.setAlignment(javafx.geometry.Pos.CENTER);
 
         Scene scene = new Scene(layout);
+        scene.getStylesheets().add(getClass().getResource("view.css").toExternalForm());
         stage.setMinHeight(150);
         stage.setMaxHeight(150);
-        stage.setMinWidth(600);
-        stage.setMaxWidth(600);
+        stage.setMinWidth(700);
+        stage.setMaxWidth(700);
         stage.setTitle("Currency Converter");
         stage.setScene(scene);
         stage.show();
