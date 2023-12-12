@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.model.Note;
+import com.example.model.Notebook;
 import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.ListView;
 
 public class NoteController {
-    private Note note = new Note();
+    private Notebook notebook = new Notebook();
 
     @FXML
     private TextField title;
@@ -23,20 +23,20 @@ public class NoteController {
 
     @FXML
     void addToNote(ActionEvent event) {
-        this.note.add(title.getText(), content.getText());
+        this.notebook.add(title.getText(), content.getText());
         this.noteList.getItems().add(title.getText());
     }
 
     @FXML
     void displayNote(MouseEvent event) {
-        String key = this.noteList.getSelectionModel().getSelectedItem();
-        this.title.setText(key);
-        this.content.setText(this.note.get(key));
+        String title = this.noteList.getSelectionModel().getSelectedItem();
+        this.title.setText(title);
+        this.content.setText(this.notebook.getNoteWithTitle(title).getContent());
     }
 
     @FXML
     void removeFromNote(ActionEvent event) {
-        this.note.remove(title.getText());
+        this.notebook.remove(title.getText());
         this.noteList.getItems().remove(title.getText());
 
         this.title.setText("");

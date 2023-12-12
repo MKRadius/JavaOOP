@@ -1,39 +1,51 @@
 package com.example.model;
 
-import java.util.HashMap;
-
 public class Note {
-    private HashMap<String, String> note;
+    private String title;
+    private String content;
 
     public Note() {
-        this.note = new HashMap<String, String>();
+        this.title = "";
+        this.content = "";
     }
 
-    public void add(String key, String value) {
-        this.note.put(key, value);
+    public Note(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
-    public String get(String key) {
-        return this.note.get(key);
+    public void add(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
-    public String[] getKeys() {
-        return this.note.keySet().toArray(new String[0]);
+    public void remove(String title) {
+        this.title = "";
+        this.content = "";
     }
 
-    public void remove(String key) {
-        this.note.remove(key);
+    public String getTitle() {
+        return this.title;
     }
 
-    public void update(String key, String value) {
-        this.note.replace(key, value);
+    public String getContent() {
+        return this.content;
     }
 
-    public HashMap<String, String> getAll() {
-        return this.note;
+    public String getContentWithTitle(String title) {
+        return this.content;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
     public String toString() {
-        return "Title: " + this.note.keySet().toArray()[0] + "\nContent: " + this.note.values().toArray()[0];
+        return "Title: " + this.title + "\nContent: " + this.content;
     }
 }
