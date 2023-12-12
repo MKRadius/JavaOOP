@@ -19,31 +19,27 @@ public class NoteController {
     private TextArea content;
 
     @FXML
-    private ListView<Note> noteList;
-
-
+    private ListView<String> noteList;
 
     @FXML
     void addToNote(ActionEvent event) {
         this.note.add(title.getText(), content.getText());
-        this.noteList.getItems().add(this.note);
-        System.out.println("added");
-    }
-
-    @FXML
-    void getAllNotes(ActionEvent event) {
-        this.noteList.getItems().addAll(this.note);
+        this.noteList.getItems().add(title.getText());
     }
 
     @FXML
     void displayNote(MouseEvent event) {
-        title.setText(noteList.getSelectionModel().getSelectedItem().toString());
-        content.setText(noteList.getSelectionModel().getSelectedItem().toString());
+        String key = this.noteList.getSelectionModel().getSelectedItem();
+        this.title.setText(key);
+        this.content.setText(this.note.get(key));
     }
 
     @FXML
     void removeFromNote(ActionEvent event) {
         this.note.remove(title.getText());
-    }
+        this.noteList.getItems().remove(title.getText());
 
+        this.title.setText("");
+        this.content.setText("");
+    }
 }

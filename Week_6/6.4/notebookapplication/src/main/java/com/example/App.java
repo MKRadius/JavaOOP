@@ -25,14 +25,15 @@ public class App extends Application {
     // }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        URL url = getClass().getResource("note.fxml");
-        System.out.println("URL: " + url);
+    public void start(Stage stage) throws Exception{
+        // URL url = getClass().getResource("note.fxml");
+        // System.out.println("URL: " + url);
 
         Parent root = FXMLLoader.load(getClass().getResource("note.fxml"));
-        primaryStage.setTitle("My JavaFX App");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        stage.setTitle("My JavaFX App");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
     }
 
     public static void main(String[] args) {
