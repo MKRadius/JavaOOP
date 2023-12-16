@@ -37,12 +37,24 @@ public class ConverterView extends Application {
         toCurrency.setPromptText("To");
         toCurrencyBox.setPromptText("XXX");
 
-        for (String currency : converterController.getAllCurrencyAbbreviations()) {
-            fromCurrencyBox.getItems().add(currency);
-            toCurrencyBox.getItems().add(currency);
+        try {
+            for (String currency : converterController.getAllCurrencyAbbreviations()) {
+                if (currency == null) {
+                    message.setText("Error in DB communication");
+                }
+                fromCurrencyBox.getItems().add(currency);
+                toCurrencyBox.getItems().add(currency);
+            }
+        }
+        catch (NullPointerException exception) {
+            message.setText("Error in DB communication");
         }
 
         convertButton.setOnAction(e -> {
+            if (converterController.connectionTest()) {
+                message.setText("Error in DB communication");
+            }
+
             double amount;
             String fromCurrencyCode = fromCurrencyBox.getValue();
             String toCurrencyCode = toCurrencyBox.getValue();
@@ -67,8 +79,13 @@ public class ConverterView extends Application {
 
             double convertedAmount = converterController.getConvertedValue(amount, fromCurrencyCode, toCurrencyCode);
 
-            toCurrency.setText(String.format("%.2f", convertedAmount));
-            message.setText("\n");
+            if (Double.isNaN(convertedAmount)) {
+                message.setText("Error in DB communication");
+            }
+            else {
+                toCurrency.setText(String.format("%.2f", convertedAmount));
+                message.setText("\n");
+            }
 
         });
 

@@ -6,6 +6,21 @@ import java.sql.*;
 import java.util.*;
 
 public class CurrencyDAO {
+    public boolean connectionTest() {
+        try {
+            Connection connection = MariaDBConnection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM currency");
+            while (resultSet.next()) {
+                continue;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
     public List<Currency> getAllCurrencies() {
         List<Currency> currencies = new ArrayList<>();
         String query = "SELECT * FROM currency";
@@ -17,15 +32,16 @@ public class CurrencyDAO {
 
             while (resultSet.next()) {
                 Currency currency = new Currency(
-                        resultSet.getInt("id"),
-                        resultSet.getString("abbreviation"),
-                        resultSet.getString("name"),
-                        resultSet.getDouble("rate"));
+                    resultSet.getInt("id"),
+                    resultSet.getString("abbreviation"),
+                    resultSet.getString("name"),
+                    resultSet.getDouble("rate"));
                 currencies.add(currency);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
         return currencies;
     }
@@ -45,6 +61,7 @@ public class CurrencyDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
         return abbreviations.toArray(new String[0]);
     }
@@ -56,7 +73,7 @@ public class CurrencyDAO {
         try {
             Connection connection = MariaDBConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            
+
             preparedStatement.setString(1, abbreviation);
     
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -66,7 +83,8 @@ public class CurrencyDAO {
             }
     
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception, log it, etc.
+            e.printStackTrace();
+            return Double.NaN;
         }
     
         return conversionRate;

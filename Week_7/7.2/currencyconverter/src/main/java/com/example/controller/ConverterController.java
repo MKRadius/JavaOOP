@@ -12,6 +12,10 @@ public class ConverterController {
         this.converterView = converterView;
     }
 
+    public boolean connectionTest() {
+        return currencyDAO.connectionTest();
+    }
+
     public String[] getAllCurrencyAbbreviations() {
         return currencyDAO.getAllAbbreviations();
     }
