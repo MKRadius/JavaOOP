@@ -30,6 +30,6 @@ public class ConverterController {
         catch (NumberFormatException exception) {
             return 0.0;
         }
-        return amount * (fromRate / toRate);
+        return amount * (toRate / fromRate);
     }
 }
