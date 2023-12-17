@@ -5,6 +5,10 @@ import com.example.entity.Transaction;
 import jakarta.persistence.EntityManager;
 
 public class TransactionDAO {
+    public boolean connectionTest() {
+        EntityManager em = MariaDBJPAConnection.getInstance();
+        return em != null;
+    }
     public void persist(Transaction transaction) {
         EntityManager em = MariaDBJPAConnection.getInstance();
         em.getTransaction().begin();

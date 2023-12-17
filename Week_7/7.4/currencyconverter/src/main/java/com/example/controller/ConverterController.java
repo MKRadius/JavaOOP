@@ -18,7 +18,10 @@ public class ConverterController {
     }
 
     public boolean connectionTest() {
-        return currencyDAO.connectionTest();
+        if (!currencyDAO.connectionTest() || !transactionDAO.connectionTest()) {
+            return false;
+        }
+        return true;
     }
 
     public void persist(String abbreviation, String name, double conversionRate) {

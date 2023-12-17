@@ -36,6 +36,11 @@ public class ConverterView extends Application {
         Button convertButton = new Button("Convert");
         converter.getChildren().addAll(fromCurrency, fromCurrencyBox, equal, toCurrency, toCurrencyBox, convertButton);
         converter.setAlignment(javafx.geometry.Pos.CENTER);
+
+        FlowPane addTransactionPane = new FlowPane();
+        Button addTransactionButton = new Button("Add Transaction");
+        addTransactionPane.getChildren().add(addTransactionButton);
+        addTransactionPane.setAlignment(javafx.geometry.Pos.CENTER);
         
         FlowPane addCurrencyPane = new FlowPane();
         Button addCurrencyButton = new Button("Add Currency");
@@ -56,7 +61,7 @@ public class ConverterView extends Application {
         text.setAlignment(javafx.geometry.Pos.CENTER);
 
 
-        layout.getChildren().addAll(converter, addCurrencyPane, text);
+        layout.getChildren().addAll(converter, addTransactionPane, addCurrencyPane, text);
 
         // fetch currencies
         try {
@@ -74,7 +79,7 @@ public class ConverterView extends Application {
 
         // convert currency
         convertButton.setOnAction(e -> {
-            if (converterController.connectionTest()) {
+            if (!converterController.connectionTest()) {
                 message.setText("Error in DB communication");
             }
 
@@ -107,9 +112,43 @@ public class ConverterView extends Application {
             }
             else {
                 toCurrency.setText(String.format("%.2f", convertedAmount));
-                converterController.handleConversion(fromCurrencyCode, toCurrencyCode, amount, convertedAmount);
                 message.setText("\n");
             }
+        });
+
+        // add transaction
+        addTransactionButton.setOnAction(e -> {
+            if (!converterController.connectionTest()) {
+                message.setText("Error in this DB communication");
+            }
+
+            double sourceAmount;
+            double targetAmount;
+            String fromCurrencyCode = fromCurrencyBox.getValue();
+            String toCurrencyCode = toCurrencyBox.getValue();
+
+            try {
+                sourceAmount = Double.parseDouble(fromCurrency.getText());
+                targetAmount = Double.parseDouble(toCurrency.getText());
+            }
+            catch (NumberFormatException exception) {
+                message.setText("Please enter a number\n");
+                return;
+            }
+
+            if (fromCurrencyCode == null || toCurrencyCode == null) {
+                message.setText("Please select currencies\n");
+                return;
+            }
+
+            if (fromCurrencyCode.equals(toCurrencyCode)) {
+                message.setText("Please select different currencies\n");
+                return;
+            }
+
+            converterController.handleConversion(fromCurrencyCode, toCurrencyCode, sourceAmount, targetAmount);
+
+            message.setText("Transaction added\n");
         });
 
         // add currency and trigger a refetch of currencies after adding a new currency
